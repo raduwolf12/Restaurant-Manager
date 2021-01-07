@@ -1,0 +1,226 @@
+﻿<Window x:Class="Restaurant.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Views"
+        mc:Ignorable="d"
+        x:Name="mainV"
+        xmlns:vm="clr-namespace:Restaurant.ViewModels"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Title="MainView" Height="451.5" Width="1077.5" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <vm:MainViewModel x:Key="mainVM" />
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid DataContext="{Binding Source={StaticResource mainVM}}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <Border  Margin="0,0,560,384"  >
+                <ListBox x:Name="picker"   SelectedItem="" Margin="0,0,216,0" >
+                    <ListBoxItem Content="all"></ListBoxItem>
+                    <ListBoxItem Content="mic dejun" ></ListBoxItem>
+                    <ListBoxItem Content="bauturi"></ListBoxItem>
+                    <ListBoxItem Content="Preparate calde"></ListBoxItem>
+                    <ListBoxItem Content="deserturi"></ListBoxItem>
+                    <ListBoxItem Content="supe/ciorbe "></ListBoxItem>
+                    <ListBoxItem Content="aperitive"></ListBoxItem>
+                </ListBox>
+            </Border>
+
+
+
+            <Border CornerRadius="3" Margin="0,49,0,0" >
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#8fa6cb" Offset="0.0"/>
+                        <GradientStop Color="#7d84b2" Offset="0.5"/>
+                        <GradientStop Color="#D5F9DE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <ListView x:Name="listViewAdmin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="541"  Height="187" ItemsSource="{Binding PreparatComplet,UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding HideAdmin}" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Denumire" DisplayMemberBinding="{Binding Name.denumire}"  />
+                            <GridViewColumn Header="Alergeni" DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Gramaj" DisplayMemberBinding="{Binding Name.cantintate_portie, Mode=OneWay}" />
+                            <GridViewColumn Header="Pret" DisplayMemberBinding="{Binding Name.pret, Mode=OneWay}"/>
+                            <GridViewColumn Header="Stoc disponibil" DisplayMemberBinding="{Binding Name.cantitate_restaurant, Mode=OneWay}"  />
+                            <GridViewColumn Header="Disponibil" DisplayMemberBinding="{Binding Disponibilitate, Mode=OneWay}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+            </Border>
+
+            <ListView x:Name="listViewAdminMeniu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="541"  Height="174" ItemsSource="{Binding Mp,UpdateSourceTrigger=PropertyChanged}" Margin="0,235,0,0"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Denumire" DisplayMemberBinding="{Binding Meniu.denumire}"  />
+                        <GridViewColumn Header="Detalii" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Button Content="Press" Command="{Binding MenuDetails, Mode=OneWay, Source={StaticResource mainVM}}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdminMeniu}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Pret" DisplayMemberBinding="{Binding Val}"  />
+                        <GridViewColumn Header="Disponibil" DisplayMemberBinding="{Binding Disponibilitate, Mode=OneWay}"/>
+                        <GridViewColumn Header="Remove Menu" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Button Content="-"  Command="{Binding DecrementMenuQ, Source={StaticResource mainVM}}"  CommandParameter="{Binding SelectedItem, ElementName=listViewAdminMeniu}" IsEnabled="{Binding ButtonEnable,Source={StaticResource mainVM}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Cantitate" DisplayMemberBinding="{Binding Cantitate, Mode=OneWay}" />
+                        <GridViewColumn Header="Add Menu" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Button Content="+" Command="{Binding IncrementMenuQ, Mode=OneWay, Source={StaticResource mainVM}}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdminMeniu}" IsEnabled="{Binding ButtonEnable,Source={StaticResource mainVM}}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="buttonminus" Content="-" Margin="575,310,456,79" Command="{Binding DecrementQ}" CommandParameter="{Binding SelectedItem, ElementName=listViewCommUsers}" Visibility="{Binding Hide}" IsEnabled="{Binding ButtonEnable}">
+                <Button.Background>
+
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                        <GradientStop Color="Red" Offset="0" />
+
+                        <GradientStop Color="Red" Offset="1.0" />
+
+                    </LinearGradientBrush>
+
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonminusAdmin" Content="-" Margin="575,310,456,79"  Command="{Binding DecrementQ}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}" IsEnabled="{Binding ButtonEnable}" >
+                <Button.Background>
+
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                        <GradientStop Color="Red" Offset="0" />
+
+                        <GradientStop Color="Red" Offset="1.0" />
+
+                    </LinearGradientBrush>
+
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonplus" Content="+" Margin="972,310,29,79" Command="{Binding IncrementQ}" CommandParameter="{Binding SelectedItem, ElementName=listViewCommUsers}" Visibility="{Binding Hide}" IsEnabled="{Binding ButtonEnable}">
+                <Button.Background>
+
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                        <GradientStop Color="Lime" Offset="0" />
+
+                        <GradientStop Color="Lime" Offset="1.0" />
+
+                    </LinearGradientBrush>
+
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonplusAdmin" Content="+" Margin="972,310,29,79" Command="{Binding IncrementQ}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}" IsEnabled="{Binding ButtonEnable}">
+                <Button.Background>
+
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                        <GradientStop Color="Lime" Offset="0" />
+
+                        <GradientStop Color="Lime" Offset="1.0" />
+
+                    </LinearGradientBrush>
+
+                </Button.Background>
+            </Button>
+            <Button x:Name="plaseazaComanda" Content="Plaseaza comanda" Margin="575,366,29,23" IsEnabled="{Binding ButtonEnable}" Command="{Binding Comanda}"/>
+            <TextBox x:Name="textBox" HorizontalContentAlignment="Center" Height="22" TextWrapping="Wrap" Text="{Binding SelectedItem.Cantitate, ElementName=listViewCommUsers}" Visibility="{Binding Hide}" IsReadOnly="True" Margin="746,282,204,117" Width="120"/>
+            <TextBox x:Name="textBoxAdmin" Visibility="{Binding HideAdmin}" HorizontalContentAlignment="Center" Height="22" TextWrapping="Wrap" Text="{Binding SelectedItem.Cantitate, ElementName=listViewAdmin}" IsReadOnly="True" Margin="746,282,204,117" Width="120"/>
+
+
+            <ListView x:Name="listViewCommUsers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="541"  Height="186" ItemsSource="{Binding PreparatComplet}" Margin="0,49,0,0" Visibility="{Binding Hide}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Denumire" DisplayMemberBinding="{Binding Name.denumire}"  />
+                        <GridViewColumn Header="Alergeni" DisplayMemberBinding="{Binding Address}" />
+                        <GridViewColumn Header="Gramaj" DisplayMemberBinding="{Binding Name.cantintate_portie, Mode=OneWay}" />
+                        <GridViewColumn Header="Pret" DisplayMemberBinding="{Binding Name.pret, Mode=OneWay}"/>
+                        <GridViewColumn Header="Disponibil" DisplayMemberBinding="{Binding Disponibilitate, Mode=OneWay}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Image x:Name="image" Margin="557,96,371,186" Source="{Binding SelectedItem.poza2, ElementName=listViewCommUsers}" Visibility="{Binding Hide}"/>
+            <Image x:Name="image1" Margin="704,96,172,186" Source="{Binding SelectedItem.poza1, ElementName=listViewCommUsers}" Visibility="{Binding Hide}"/>
+            <Image x:Name="image2" Margin="903,96,10,186" Source="{Binding SelectedItem.poza3, ElementName=listViewCommUsers}" Visibility="{Binding Hide}"/>
+
+            <Image x:Name="imageA" Margin="557,96,371,186" Source="{Binding SelectedItem.poza2, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}"/>
+            <Image x:Name="image1A" Margin="704,96,172,186" Source="{Binding SelectedItem.poza1, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}"/>
+            <Image x:Name="image2A" Margin="903,96,10,186" Source="{Binding SelectedItem.poza3, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}"/>
+
+            <Menu Margin="972,5,0,387" HorizontalAlignment="Left" Width="88" Visibility="{Binding HideAdmin}">
+                <MenuItem Header="_Actions" Width="88" Height="19"  >
+                    <MenuItem Header="_Add Preparat" Command="{Binding AddEdditPreparat}" />
+                    <Separator />
+                    <MenuItem Header="_Edit Preparat" Command="{Binding AddEdditPreparat}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdmin}" />
+                    <Separator />
+                    <MenuItem Header="_Remove Preparat" Command="{Binding RemovePreparat}" CommandParameter="{Binding SelectedItem, ElementName=listViewAdmin}" />
+                    <Separator />
+                    <MenuItem Header="_Add Meniu" Command="{Binding AddEdditMenu}" />
+                    <Separator />
+                    <MenuItem Header="_Edit Meniu" Command="{Binding AddEdditMenu}"  CommandParameter="{Binding SelectedItem, ElementName=listViewAdminMeniu}"/>
+                    <Separator />
+                    <MenuItem Header="_Remove Meniu"  Command="{Binding RemoveMenu}" CommandParameter="{Binding SelectedItem.Meniu.denumire, ElementName=listViewAdminMeniu}"/>
+                    <Separator />
+                    <MenuItem Header="_Urmareste comenzi" Command="{Binding ComenziStatus}"/>
+
+                </MenuItem>
+            </Menu>
+            <TextBox Margin="371,11,493,381" 
+                     Tag="Search..."
+                     Name="searchBar" 
+                     Text="{Binding TextSearch, Source={StaticResource mainVM}}"
+                     />
+            <Button Margin="553,11,493,381" Command="{Binding Search}"  CommandParameter="{Binding SelectedItem, ElementName=picker}">
+                <Button.Content>
+                    <iconPacks:PackIconMaterial Kind="TextBoxSearch"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="Black"/>
+                </Button.Content>
+            </Button>
+
+            <CheckBox Margin="696,15,345,372" IsChecked="{Binding SearchByAlergeni}" Content="{Binding SearchByAlergeni}"/>
+            <!--<Image x:Name="imageAdmin" Margin="642,96,94,186" Source="{Binding SelectedItem.Poze/, ElementName=listViewAdmin}" Visibility="{Binding HideAdmin}"/>-->
+            <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="306,10,0,0" VerticalAlignment="Top" Width="33" Height="24" Command="{Binding ChangeCategorie}" CommandParameter="{Binding SelectedItem, ElementName=picker}"/>
+            <Label x:Name="label" Content="Search by alergeni" HorizontalAlignment="Left" Margin="582,8,0,0" VerticalAlignment="Top" Width="114"/>
+            <Menu Margin="879,5,0,387" HorizontalAlignment="Left" Width="88" >
+                <MenuItem Header="_Account" Width="88" Height="19"  >
+                    <MenuItem Header="Comenzi" Command="{Binding ViewComanda}" IsEnabled="{Binding ButtonEnable,Source={StaticResource mainVM}}"/>
+                    <Separator />
+                    <MenuItem Header="Register" Command="{Binding Register}" CommandParameter="{Binding ElementName=mainV}"/>
+                    <Separator />
+                    <MenuItem Header="Logout/Exit" Command="{Binding Exit}" CommandParameter="{Binding ElementName=mainV}"/>
+                </MenuItem>
+            </Menu>
+
+        </Grid>
+    </Grid>
+</Window>
+              

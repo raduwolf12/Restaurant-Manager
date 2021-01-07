@@ -1,0 +1,254 @@
+﻿<Window x:Class="Restaurant.Views.RegisterView"
+        x:Name="RegisterV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Views"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"        xmlns:vm="clr-namespace:Restaurant.ViewModels"
+
+        Title="RegisterView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <vm:RegisterViewModel x:Key="registerVM" />
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:RegisterViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+
+
+            <Border CornerRadius="3" >
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#8fa6cb" Offset="0.0"/>
+                        <GradientStop Color="#7d84b2" Offset="0.5"/>
+                        <GradientStop Color="#D5F9DE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <StackPanel VerticalAlignment="Center" Height="0" Margin="0,204,0,215"/>
+
+
+
+            <StackPanel Grid.Row="0" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="username" FontFamily="Helvetica"
+                            FontWeight="Light"
+                            Text="{Binding Name}"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label_Copy4" 
+                        Content="Name" 
+                        FontFamily="Helvetica"
+                        FontWeight="Light"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="235"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"
+                        Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox x:Name="Surname" FontFamily="Helvetica"
+                            Text="{Binding Surname}"
+                            FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label_Copy3" 
+                        Content="Surname" 
+                        FontFamily="Helvetica"
+                        FontWeight="Light"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="235"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"
+                        Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox x:Name="password" FontFamily="Helvetica"
+                            Text="{Binding Password}"
+                            FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label_Copy2" 
+                        Content="Password" 
+                        FontFamily="Helvetica"
+                        FontWeight="Light"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="235"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"
+                        Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox x:Name="email" FontFamily="Helvetica"
+                            Text="{Binding Email}"
+                            FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label_Copy1" 
+                        Content="Email" 
+                        FontFamily="Helvetica"
+                        FontWeight="Light"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="235"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"
+                        Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox x:Name="adress" FontFamily="Helvetica"
+                            Text="{Binding Adress}"
+                            FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label_Copy" 
+                        Content="Adress" 
+                        FontFamily="Helvetica"
+                        FontWeight="Light"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="235"
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"
+                        Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox x:Name="Phone" FontFamily="Helvetica"
+                            Text="{Binding Phone}"
+                            FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <Label x:Name="label" 
+                           Content="Phone" 
+                           FontFamily="Helvetica"
+                           FontWeight="Light"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="34"/>
+
+                </StackPanel>
+                <Border
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5" Margin="271,0,201,0"/>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                    <Button Width="138" Height="40" Content="CANCEL" Margin="160,0,0,0" Command="{Binding Exit}" CommandParameter="{Binding ElementName=RegisterV}"/>
+                    <Button Width="138" Height="40" Content="REGISTER" Margin="175,0,60,0" Command="{Binding Register}"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

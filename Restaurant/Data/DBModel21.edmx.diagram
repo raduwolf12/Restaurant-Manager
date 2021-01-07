@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="404a918cebdf49dd965043c2eb0e4ef3" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="databaseWPFModel.Alergeni" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Categorii" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Comanda_Meniu" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Comanda_Preparat" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Comenzi" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Meniu" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Poze" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Preparate" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Pret_Comenzi" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Roluri" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.Status" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.sysdiagram" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseWPFModel.User" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="databaseWPFModel.FK_Meniu_Categorii" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Preparate_Categorii" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comanda_Meniu_Comenzi" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comanda_Meniu_Meniu" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comanda_Preparat_Comenzi" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comanda_Preparat_Preparate" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comenzi_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Comenzi_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.FK_Pret_Comenzi_Comenzi" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.Preparat_Alergeni" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.Preparat_Poza" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseWPFModel.User_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

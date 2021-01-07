@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{695BF39F-795C-484B-BAAC-271D1EF8CC44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Restaurant</RootNamespace>
+    <AssemblyName>Restaurant</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Material.4.0.0\lib\net47\MahApps.Metro.IconPacks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Material.4.0.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.7.2.0.1422\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Data\Alergeni.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Categorii.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Comanda_Meniu.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Comanda_Preparat.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Comenzi.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DBModel21.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel21.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DBModel21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DBModel21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel21.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetAllAlergeni_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetAllCategorii_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetAllStatus_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetComenziByEmail_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetComenziFull_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LoginCheck1_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Meniu.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Poze.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Preparate.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Pret_Comenzi.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Roluri.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetAllMenues_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetAllPhotosForPreparat_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetMeniuriByCategorie_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetPreparateByCategorie_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetPreparateByMenu_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPGetPreparate_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPLoginAndReturnUser_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSearchMenuAll_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSearchMenuByCategorie2_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSearchMenuByCategorie_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSearchPreparatAll_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSearchPreparatByCategorie_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPSelectProductByCategorie_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Status.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagram.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>DBModel21.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="ViewModels\AddEdditMeniuViewModel.cs" />
+    <Compile Include="ViewModels\AddEdditPreparatViewModel.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\ComenziPropriViewModel.cs" />
+    <Compile Include="ViewModels\ComenziViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\SuportViewModel.cs" />
+    <Compile Include="Views\AddEdditMeniu.xaml.cs">
+      <DependentUpon>AddEdditMeniu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEdditPreparate.xaml.cs">
+      <DependentUpon>AddEdditPreparate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComenziPropriView.xaml.cs">
+      <DependentUpon>ComenziPropriView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComenziView.xaml.cs">
+      <DependentUpon>ComenziView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\AddEdditMeniu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEdditPreparate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComenziPropriView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComenziView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\DBModel21.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel21.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\DBModel21.edmx.diagram">
+      <DependentUpon>DBModel21.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\DBModel21.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel21.edmx</DependentUpon>
+      <LastGenOutput>DBModel21.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\DBModel21.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel21.edmx</DependentUpon>
+      <LastGenOutput>DBModel21.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,111 @@
+﻿<Window x:Class="Restaurant.Views.LoginView"
+        x:Name="LoginV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Views"
+        xmlns:vm="clr-namespace:Restaurant.ViewModels"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="LoginView" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent"  ResizeMode="NoResize">
+    <Window.Resources>
+        <vm:LoginViewModel x:Key="loginVM" />
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:LoginViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Border CornerRadius="3" Grid.RowSpan="2" >
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#8fa6cb" Offset="0.0"/>
+                        <GradientStop Color="#7d84b2" Offset="0.5"/>
+                        <GradientStop Color="#D5F9DE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock 
+                    
+                          FontWeight="Light"
+                          FontFamily="helvetica"
+                          FontSize="22"
+                          Foreground="White"
+                          HorizontalAlignment="Center" Height="59" Margin="68,0"><Run Text="RESTAURANT"/><LineBreak/><Run Text="  MANAGER"/></TextBlock>
+            </StackPanel>
+
+
+
+            <StackPanel Grid.Row="1" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="email" FontFamily="Helvetica"
+                            FontWeight="Light"
+                            Text="{Binding Email}"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0"/>
+                    <iconPacks:PackIconMaterial Kind="Account"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="White"/>
+                </StackPanel>
+                <Border Width="250"
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5"/>
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <PasswordBox x:Name="password" FontFamily="Helvetica"
+                            FontWeight="Light"
+                            Password="Password"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="270,0,0,0" />
+                    <iconPacks:PackIconMaterial Kind="TextBox"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="White"/>
+                </StackPanel>
+                <Border Width="250"
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5"/>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                    <Button Width="138" Height="40" Content="LOGIN" Margin="30,0,60,0" Command="{Binding Login}" CommandParameter="{Binding ElementName=password}"/>
+                    <Button Width="138" Height="40" Content="REGISTER" Margin="0,0,60,0" Command="{Binding Register}" CommandParameter="{Binding ElementName=LoginV}" />
+                    <Button Width="138" Height="40" Content="JOIN AS GUEST" Margin="0,0,0,0" Command="{Binding GuestLogin}"/>
+                    <Button Width="138" Height="40" Content="EXIT" Margin="60,0,60,0" Command="{Binding Exit}" CommandParameter="{Binding ElementName=LoginV}" />
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
